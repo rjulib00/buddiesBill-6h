@@ -88,7 +88,7 @@ public class Event {
 		
 		media=(getBalance()-totalpot)/buddy.length-1;
 		
-		for (int i=0; i<buddy.length;i++) {
+		for (int i=1; i<buddy.length;i++) {
 			deudas[i]=media-buddy[i].getMoney();
 		}	
 	
@@ -111,6 +111,7 @@ public class Event {
 				}
 			}
 		}
+		buddy[0].setMoney(0.0f);
 		logger.info(payments.toString());
 		text.print(payments.toString());
 	}
