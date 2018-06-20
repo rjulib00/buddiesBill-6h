@@ -82,7 +82,7 @@ public class Event {
 		float media;
 		float totalpot = buddy.length * this.pot;
 	
-		for (int i=0; i<buddy.length;i++) {
+		for (int i=1; i<buddy.length;i++) {
 			balance=getBalance()+buddy[i].getMoney();
 		}
 		
