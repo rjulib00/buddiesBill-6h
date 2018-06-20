@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" package="es.unileon.prg1">
+  <Appenders>
+    <File name="file" fileName="./log/BuddiesBill.log">
+      <PatternLayout pattern="%d %p %c{1} [%t] %m%n"/>
+    </File>
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <PatternLayout pattern="%m%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="trace">
+      <AppenderRef ref="file" level="ALL"/>
+      <AppenderRef ref="STDOUT" level="OFF"/>
+    </Root>
+    <Root level="error">
+      <AppenderRef ref="file" level="ALL"/>
+      <AppenderRef ref="STDOUT" level="OFF"/>
+    </Root>
+    <Root level="info">
+      <AppenderRef ref="file" level="ALL"/>
+      <AppenderRef ref="STDOUT" level="OFF"/>
+    </Root>
+  </Loggers>
+</Configuration>

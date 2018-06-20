@@ -1,0 +1,72 @@
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Logger name="com.foo.Bar" level="trace">
+      <AppenderRef ref="Console"/>
+    </Logger>
+    <Root level="error">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
+
+
+
+<project name="BuddiesBill" basedir="." default="todo">
+    <property name="src" value="src"/>
+    <property name="test" value="test"/>
+    <property name="lib" value="lib/junit-4.8.2.jar"/>
+    <property name="classes" value="classes"/>
+
+    <property name="paquetes" value="es.unileon.prg1.BuddiesBill"/>
+    <property name="titulo" value="Buddies Bill"/>
+
+    <target name="clean">
+      <delete dir="${classes}"/>
+    </target>
+
+    <target name="compile" depends="clean">
+      <mkdir dir="${classes}"/>
+      <javac srcdir="${src}" destdir="${classes}" classpath="${lib}"
+		includeantruntime="false"/>
+      <echo message="Compilation...done"/>
+    </target>
+
+    <!--
+    <target name="compileTests" depends="compile">
+      <mkdir dir="${classes}"/>
+      <javac srcdir="${test}" destdir="${classes}" classpath="${lib}"
+		includeantruntime="false"/>
+      <echo message="Test compilation...done"/>
+    </target>
+
+    <target name="test" depends="compileTests">
+		<java classname="org.junit.runner.JUnitCore">
+			<classpath>
+				<pathelement path="${classes}"/>
+				<pathelement path="${lib}"/>
+			</classpath>
+			<arg value="es.unileon.prg1.BuddiesBill.AllTests"/>
+		</java>
+    </target>
+  -->
+
+    <!--<target name="todo" depends="test"/>-->
+    <target name="run" depends="compile">
+      <java classname="es.unileon.prg1.BuddiesBill.BuddiesBill">
+        <classpath>
+          <pathelement path = "${classes}"/>
+        </classpath>
+      </java>
+    </target>
+
+
+
+
+    <target name="todo" depends="run"/>
+
+</project>
